@@ -1,0 +1,37 @@
+---
+title: "Assign2Part2"
+output:
+  word_document: default
+  html_document: default
+---
+## For every IP how many sources report it?
+```{r}
+load("~/srt123.rdata")
+library(ggplot2)
+p <- ggplot(data=APIcymon, aes(x=ipNum, y=NumOfSources, group=1)) + geom_point()
+p <- p + geom_smooth(method = "lm", se = FALSE)
+p
+```
+<br><br><br>
+
+## For every IP how many sources report it?
+```{r}
+mean(APIcymon$NumOfSources)
+min(APIcymon$NumOfSources)
+max(APIcymon$NumOfSources)
+```
+
+## For every IP how many URL's does it have?
+```{r}
+p <- ggplot(data=APIcymon, aes(x=ipNum, y=NumOfUrls, group=1)) + geom_point()
+p
+```
+As you can see it is mostly 0 or 10 and there are a few outliers
+
+<br><br><br>
+
+```{r}
+mean(APIcymon$NumOfUrls)
+min(APIcymon$NumOfUrls)
+max(APIcymon$NumOfUrls)
+```
